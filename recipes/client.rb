@@ -30,6 +30,7 @@ bash 'setup-epel-for-amazon-linux-2' do
     rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
   EOH
   only_if 'cat /etc/system-release | grep -q "^Amazon Linux release 2.0"'
+  not_if { ::File.exist?('/etc/yum.repos.d/epel.repo') }
 end
 
 package "munin-node"
