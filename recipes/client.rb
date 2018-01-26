@@ -23,6 +23,15 @@ else
   munin_servers = search(:node, "role:#{node['munin']['server_role']} AND chef_environment:#{node.chef_environment}")
 end
 
+bash 'setup-epel-for-amazon-linux-2' do
+  cwd '/tmp'
+  code <<-EOH
+    wget -r --no-parent -A 'epel-release-*.rpm' http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
+    rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
+  EOH
+  only_if 'cat /etc/system-release | grep -q "^Amazon Linux release 2.0"'
+end
+
 package "munin-node"
 
 service_name = node['munin']['service_name']
