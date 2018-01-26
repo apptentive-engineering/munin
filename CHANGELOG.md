@@ -1,3 +1,11 @@
+## v1.4.0:
+
+* Set up the EPEL repo for Amazon Linux 2 systems
+
+## v1.3.1:
+
+* [COOK-2881] - Create the log directory for the Munin client
+
 ## v1.3.0:
 
 * [COOK-2518] - Multi Environment
