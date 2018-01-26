@@ -1,3 +1,7 @@
+## v1.4.1:
+
+* Add idempotency to EPEL installation
+
 ## v1.4.0:
 
 * Set up the EPEL repo for Amazon Linux 2 systems
